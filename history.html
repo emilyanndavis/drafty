@@ -5,6 +5,30 @@ class: page--history
 ---
 <h1>History</h1>
 
+<h2>Summary Stats</h2>
+{% assign num_rows = site.data.all | size | times: 1.0 %}
+<h3>Temperature</h3>
+{% assign by_temp = site.data.all | sort: "temp_f" %}
+<dl>
+  <dt>Min</dt>
+  {% assign first = by_temp | first %}
+  <dd>{{ first.temp_f }}&deg;F ({{ first.time | date: "%B %e, %Y, %r" }})</dd>
+  <dt>Max</dt>
+  {% assign last = by_temp | last %}
+  <dd>{{ last.temp_f }}&deg;F ({{ last.time | date: "%B %e, %Y, %r" }})</dd>
+</dl>
+<h3>Humidity</h3>
+{% assign by_humidity = site.data.all | sort: "humidity" %}
+<dl>
+  <dt>Min</dt>
+  {% assign first = by_humidity | first %}
+  <dd>{{ first.humidity }}% ({{ first.time | date: "%B %e, %Y, %r" }})</dd>
+  <dt>Max</dt>
+  {% assign last = by_humidity | last %}
+  <dd>{{ last.humidity }}% ({{ last.time | date: "%B %e, %Y, %r" }})</dd>
+</dl>
+
+<h2>Running Log</h2>
 <table>
   <thead>
     <tr>
@@ -15,8 +39,7 @@ class: page--history
     </tr>
   </thead>
   <tbody>
-    {% assign all = site.data.all | reverse %}
-    {% for row in all %}
+    {% for row in site.data.all reversed %}
     <tr>
       <td>{{ row.time | date: "%B %e, %Y, %r" }}</td>
       <td>{{ row.temp_f }}&deg;F</td>
