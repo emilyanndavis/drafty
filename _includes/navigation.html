@@ -1,7 +1,7 @@
 <nav>
   {% for link in site.data.navigation %}
   <a
-    href="{{ link.url }}"
+    href="{{ link.url | relative_url }}"
     {% if page.url == link.url %}aria-current="page" class="current-page"{% endif %}
   >{{ link.name }}</a>
   {% endfor %}
