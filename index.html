@@ -1,0 +1,18 @@
+---
+layout: default
+title: "Drafty: Latest Readings"
+---
+<h1>Latest Readings</h1>
+
+<dl>
+  {% for row in site.data.most-recent %}
+    <dt>Date & Time</dt>
+    <dd>{{ row.time | date: "%B %e, %Y, %r" }}</dd>
+    <dt>Temperature</dt>
+    <dd>{{ row.temp_f }}&deg;F</dd>
+    <dt>Humidity</dt>
+    <dd>{{ row.humidity }}%</dd>
+    <dt>Lux</dt>
+    <dd>{{ row.lux }}</dd>
+    {% endfor %}
+</dl>

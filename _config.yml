@@ -1,0 +1,6 @@
+csv_reader:
+  converters:
+    - date_time
+    - float
+  headers: true
+  encoding: utf-8

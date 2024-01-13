@@ -1,0 +1,6 @@
+- name: Latest
+  url: /
+- name: History
+  url: /history.html
+- name: About
+  url: /README.html

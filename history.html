@@ -1,0 +1,28 @@
+---
+layout: default
+title: "Drafty: History"
+class: page--history
+---
+<h1>History</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Date & Time</th>
+      <th scope="col">Temperature</th>
+      <th scope="col">Humidity</th>
+      <th scope="col">Lux</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% assign all = site.data.all | reverse %}
+    {% for row in all %}
+    <tr>
+      <td>{{ row.time | date: "%B %e, %Y, %r" }}</td>
+      <td>{{ row.temp_f }}&deg;F</td>
+      <td>{{ row.humidity }}%</td>
+      <td>{{ row.lux }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
