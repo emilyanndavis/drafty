@@ -36,6 +36,9 @@ class: page--history
       <th scope="col">Temperature</th>
       <th scope="col">Humidity</th>
       <th scope="col">Lux</th>
+      <th scope="col">Local Weather Conditions</th>
+      <th scope="col">Outdoor Temperature</th>
+      <th scope="col">Outdoor Humidity</th>
     </tr>
   </thead>
   <tbody>
@@ -45,6 +48,9 @@ class: page--history
       <td>{{ row.temp_f }}&deg;F</td>
       <td>{{ row.humidity }}%</td>
       <td>{{ row.lux }}</td>
+      <td>{% if row.nws_conditions %}{{ row.nws_conditions }}{% else %}n/a{% endif %}</td>
+      <td>{% if row.nws_temp_f %}{{ row.nws_temp_f }}&deg;F{% else %}n/a{% endif %}</td>
+      <td>{% if row.nws_humidity %}{{ row.nws_humidity }}%{% else %}n/a{% endif %}</td>
     </tr>
   {% endfor %}
   </tbody>

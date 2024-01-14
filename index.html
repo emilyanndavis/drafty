@@ -14,5 +14,17 @@ title: "Drafty: Latest Readings"
     <dd>{{ row.humidity }}%</dd>
     <dt>Lux</dt>
     <dd>{{ row.lux }}</dd>
+    {% if row.nws_conditions %}
+    <dt>Local Weather Conditions</dt>
+    <dd>{{ row.nws_conditions }}</dd>
+    {% endif %}
+    {% if row.nws_temp_f %}
+    <dt>Outdoor Temperature</dt>
+    <dd>{{ row.nws_temp_f }}&deg;F</dd>
+    {% endif %}
+    {% if row.nws_humidity %}
+    <dt>Outdoor Humidity</dt>
+    <dd>{{ row.nws_humidity }}%</dd>
+    {% endif %}
     {% endfor %}
 </dl>

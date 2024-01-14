@@ -1,4 +1,4 @@
-time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear
+time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_temp_f,nws_humidity,nws_conditions
 2023-11-23 15:10:36,16.1,60.9,60.9,11640.8,7978.3,37434,29319,30717,65535
 2023-11-23 15:25:38,15.8,60.5,57.5,13989.4,7150.7,41179,32840,33440,65535
 2023-11-23 15:40:39,14.5,58.1,58.5,10786.7,7389.9,33520,26315,27142,65535
