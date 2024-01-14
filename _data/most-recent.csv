@@ -1,2 +1,2 @@
-time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear
-2024-01-13 18:55:30,7.4,45.2,60.4,4.4,1625.7,22,11,8,39
+time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_temp_f,nws_humidity,nws_conditions
+2024-01-13 20:48:44,7.4,45.2,64.3,4.0,1633.3,23,11,8,41,-8.9,16.0,84.1,Light Snow and Fog/Mist
