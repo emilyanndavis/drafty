@@ -7,25 +7,47 @@ class: page--history
 
 <h2>Summary Stats</h2>
 {% assign num_rows = site.data.all | size | times: 1.0 %}
-<h3>Temperature</h3>
+{% assign total_temp_diff = 0.0 %}
+{% assign num_rows_with_outdoor_temp = 0.0 %}
+{% assign total_hum_diff = 0.0 %}
+{% assign num_rows_with_outdoor_hum = 0.0 %}
+{% for row in site.data.all %}
+  {% if row.nws_temp_f %}
+    {% assign num_rows_with_outdoor_temp = num_rows_with_outdoor_temp | plus: 1 %}
+    {% assign indoor_temp = row.temp_f | times: 1.0 %}
+    {% assign outdoor_temp = row.nws_temp_f | times: 1.0 %}
+    {% assign temp_diff = indoor_temp | minus: outdoor_temp | abs %}
+    {% assign total_temp_diff = total_temp_diff | plus: temp_diff %}
+  {% endif %}
+  {% if row.nws_humidity %}
+    {% assign num_rows_with_outdoor_hum = num_rows_with_outdoor_hum | plus: 1 %}
+    {% assign indoor_hum = row.humidity | times: 1.0 %}
+    {% assign outdoor_hum = row.nws_humidity | times: 1.0 %}
+    {% assign hum_diff = indoor_hum | minus: outdoor_hum | abs %}
+    {% assign total_hum_diff = total_hum_diff | plus: hum_diff %}
+  {% endif %}
+{% endfor %}
+{% assign avg_temp_diff = total_temp_diff | divided_by: num_rows_with_outdoor_temp | round: 1 %}
+{% assign avg_hum_diff = total_hum_diff | divided_by: num_rows_with_outdoor_hum | round: 1 %}
 {% assign by_temp = site.data.all | sort: "temp_f" %}
-<dl>
-  <dt>Min</dt>
-  {% assign first = by_temp | first %}
-  <dd>{{ first.temp_f }}&deg;F ({{ first.time | date: "%B %e, %Y, %r" }})</dd>
-  <dt>Max</dt>
-  {% assign last = by_temp | last %}
-  <dd>{{ last.temp_f }}&deg;F ({{ last.time | date: "%B %e, %Y, %r" }})</dd>
-</dl>
-<h3>Humidity</h3>
 {% assign by_humidity = site.data.all | sort: "humidity" %}
 <dl>
-  <dt>Min</dt>
+  <dt>Minimum Temperature</dt>
+  {% assign first = by_temp | first %}
+  <dd>{{ first.temp_f }}&deg;F ({{ first.time | date: "%B %e, %Y, %r" }})</dd>
+  <dt>Maximum Temperature</dt>
+  {% assign last = by_temp | last %}
+  <dd>{{ last.temp_f }}&deg;F ({{ last.time | date: "%B %e, %Y, %r" }})</dd>
+  <dt>Average Deviation from Outdoor Temperature</dt>
+  <dd>{{ avg_temp_diff }}&deg;F</dd>
+  <dt>Minimum Humidity</dt>
   {% assign first = by_humidity | first %}
   <dd>{{ first.humidity }}% ({{ first.time | date: "%B %e, %Y, %r" }})</dd>
-  <dt>Max</dt>
+  <dt>Maximum Humidity</dt>
   {% assign last = by_humidity | last %}
   <dd>{{ last.humidity }}% ({{ last.time | date: "%B %e, %Y, %r" }})</dd>
+  <dt>Average Deviation from Outdoor Humidity</dt>
+  <dd>{{ avg_hum_diff }}%</dd>
 </dl>
 
 <h2>Running Log</h2>
