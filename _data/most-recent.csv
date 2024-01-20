@@ -1,2 +1,2 @@
 time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_temp_f,nws_humidity,nws_conditions
-2024-01-20 02:10:31,10.8,51.5,58.4,0.5,8890.4,1,1,1,2,1.1,34.0,88.4,Fog/Mist
+2024-01-20 02:25:31,10.5,50.9,59.0,0.5,8890.4,1,1,1,3,1.1,34.0,88.4,Mostly Clear
