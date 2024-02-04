@@ -1,2 +1,2 @@
 time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_temp_f,nws_humidity,nws_conditions
-2024-02-04 01:04:15,11.3,52.3,70.8,1.3,2410.6,1,1,0,2,2.2,36.0,92.4,Unknown Precipitation
+2024-02-04 01:19:15,11.5,52.7,70.5,-0.3,40943.5,1,0,0,2,2.2,36.0,92.4,Unknown Precipitation
