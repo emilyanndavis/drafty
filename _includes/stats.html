@@ -1,0 +1,66 @@
+<h2>Summary Stats</h2>
+
+{% assign num_rows = site.data.all | size | times: 1.0 %}
+{% assign total_temp_diff = 0.0 %}
+{% assign num_rows_with_outdoor_temp = 0.0 %}
+{% assign total_hum_diff = 0.0 %}
+{% assign num_rows_with_outdoor_hum = 0.0 %}
+{% assign max_temp = site.data.all[0].temp_f | times: 1.0 %}
+{% assign max_temp_time = site.data.all[0].time %}
+{% assign min_temp = site.data.all[0].temp_f | times: 1.0 %}
+{% assign min_temp_time = site.data.all[0].time %}
+{% assign max_hum = site.data.all[0].humidity | times: 1.0 %}
+{% assign max_hum_time = site.data.all[0].time %}
+{% assign min_hum = site.data.all[0].humidity | times: 1.0 %}
+{% assign min_hum_time = site.data.all[0].time %}
+{% for row in site.data.all %}
+  {% assign temp = row.temp_f | times: 1.0 %}
+  {% if temp > max_temp %}
+    {% assign max_temp = temp %}
+    {% assign max_temp_time = row.time %}
+  {% endif %}
+  {% if temp < min_temp %}
+    {% assign min_temp = temp %}
+    {% assign min_temp_time = row.time %}
+  {% endif %}
+  {% assign hum = row.humidity | times: 1.0 %}
+  {% if hum > max_hum %}
+    {% assign max_hum = hum %}
+    {% assign max_hum_time = row.time %}
+  {% endif %}
+  {% if hum < min_hum %}
+    {% assign min_hum = hum %}
+    {% assign min_hum_time = row.time %}
+  {% endif %}
+  {% if row.nws_temp_f %}
+    {% assign num_rows_with_outdoor_temp = num_rows_with_outdoor_temp | plus: 1 %}
+    {% assign indoor_temp = row.temp_f | times: 1.0 %}
+    {% assign outdoor_temp = row.nws_temp_f | times: 1.0 %}
+    {% assign temp_diff = indoor_temp | minus: outdoor_temp | abs %}
+    {% assign total_temp_diff = total_temp_diff | plus: temp_diff %}
+  {% endif %}
+  {% if row.nws_humidity %}
+    {% assign num_rows_with_outdoor_hum = num_rows_with_outdoor_hum | plus: 1 %}
+    {% assign indoor_hum = row.humidity | times: 1.0 %}
+    {% assign outdoor_hum = row.nws_humidity | times: 1.0 %}
+    {% assign hum_diff = indoor_hum | minus: outdoor_hum | abs %}
+    {% assign total_hum_diff = total_hum_diff | plus: hum_diff %}
+  {% endif %}
+{% endfor %}
+{% assign avg_temp_diff = total_temp_diff | divided_by: num_rows_with_outdoor_temp | round: 1 %}
+{% assign avg_hum_diff = total_hum_diff | divided_by: num_rows_with_outdoor_hum | round: 1 %}
+
+<dl>
+  <dt>Minimum Temperature</dt>
+  <dd>{{ min_temp }}&deg;F ({{ min_temp_time | date: "%B %e, %Y, %r" }})</dd>
+  <dt>Maximum Temperature</dt>
+  <dd>{{ max_temp }}&deg;F ({{ max_temp_time | date: "%B %e, %Y, %r" }})</dd>
+  <dt>Average Deviation from Outdoor Temperature</dt>
+  <dd>{{ avg_temp_diff }}&deg;F</dd>
+  <dt>Minimum Humidity</dt>
+  <dd>{{ min_hum }}% ({{ min_hum_time | date: "%B %e, %Y, %r" }})</dd>
+  <dt>Maximum Humidity</dt>
+  <dd>{{ max_hum }}% ({{ max_hum_time | date: "%B %e, %Y, %r" }})</dd>
+  <dt>Average Deviation from Outdoor Humidity</dt>
+  <dd>{{ avg_hum_diff }}%</dd>
+</dl>
