@@ -51,4 +51,10 @@ The following data is available, both in `most-recent.csv` and in `all.csv`:
 | Local weather conditions | nws_conditions | Summary of current weather conditions as reported by the nearest NWS station |
 
 ## Limitations
+### Uptime
 The ideal site for collecting temperature, humidity, and light data does not include access to an electrical outlet. Therefore, Drafty runs on battery power and must periodically be taken offline for recharging. 
+
+### Data quality
+The NWS API occasionally returns empty data. When this occurs, the value presented in the table is “n/a”. 
+
+In mid-February, Drafty began recording abnormally high temperatures, in the neighborhood of 90–100 F (while the outdoor temperature was in the low 40s to mid 50s). Since these readings occurred in the afternoon on sunny days, I suspect they are skewed due to increased direct sunlight and the changing angle of light as we move from winter toward summer. (Drafty is located just below a south-facing window. As we move from the winter solstice toward the summer solstice, the sun is—relatively speaking—moving higher into the sky.) I'm not yet certain how, or indeed whether, I will compensate for this phenomenon.
