@@ -2,12 +2,28 @@
 layout: default
 title: "Drafty: History"
 class: page--history
+js_url: "/assets/js/history-filters.js"
 ---
 <h1>History</h1>
+{% assign num_rows = site.data.all | size | times: 1.0 %}
 
 {% include stats.html %}
 
 <h2>Running Log</h2>
+
+<form id="month-filter-form">
+  <label for="month">Select a month</label>
+  <select id="month">
+    <option value=""></option>
+    {% for month in site.data.months %}
+      <option value="{{ month.month }} {{ month.year }}">{{ month.month }} {{ month.year }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit">Filter results</button>
+</form>
+
+<button type="button" id="show-all">Show all ({{ num_rows | round }} rows)</button>
+
 <table>
   <thead>
     <tr>
@@ -34,3 +50,5 @@ class: page--history
   {% endfor %}
   </tbody>
 </table>
+
+<script src="{{ page.js_url | relative_url }}"></script>
