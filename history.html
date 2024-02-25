@@ -6,7 +6,7 @@ js_url: "/assets/js/history-filters.js"
 ---
 <h1>History</h1>
 
-{% assign num_rows = site.data.all | size | times: 1.0 %}
+{% assign num_rows = site.data.all | size | times: 1.0 | round %}
 
 <h2 class="visually-hidden">Filter Options</h2>
 
@@ -28,10 +28,10 @@ js_url: "/assets/js/history-filters.js"
 
 <div class="filter-option-container">
   <h3 class="filter-option-heading">Show All (Default)</h3>
-  <button type="button" id="show-all">Show all ({{ num_rows | round }} rows)</button>
+  <button type="button" id="show-all">Show all ({{ num_rows }} rows)</button>
 </div>
 
-<h2 id="table-heading">All Data</h2>
+<h2 id="table-heading">All Data ({{ num_rows }} rows)</h2>
 <div class="table-container">
   <table>
     <thead>
