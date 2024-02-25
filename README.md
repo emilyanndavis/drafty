@@ -9,7 +9,9 @@ class: page--about
 Drafty attempts to answer the question: "Just how drafty is it in that drafty room of the house?" A Raspberry Pi is installed in a poorly insulated enclosed porch and periodically takes readings of the ambient temperature, humidity, and light levels. For comparison with outdoor conditions, local weather data is retrieved from the National Weather Service.
 
 ## About this site
-This site is built with [Jekyll](https://jekyllrb.com/). The homepage provides the most recently collected data, while the history page provides a running log of all data collected so far.
+The Drafty website is an interface for exploring the data that has been collected by the Raspberry Pi. The homepage (also called "Latest") provides the most recently collected data, the History page provides a log of all data collected so far, and the Stats page provides some summary statistics calculated from the entire collection of data.
+
+This site is built with [Jekyll](https://jekyllrb.com/), and you can find the site's full [source code on GitHub](https://github.com/emilyanndavis/drafty).
 
 ## About the data
 ### Indoor data collection
@@ -57,4 +59,4 @@ The ideal site for collecting temperature, humidity, and light data does not inc
 ### Data quality
 The NWS API occasionally returns empty data. When this occurs, the value presented in the table is “n/a”. 
 
-In mid-February, Drafty began recording abnormally high temperatures, in the neighborhood of 90–100 F (while the outdoor temperature was in the low 40s to mid 50s). Since these readings occurred in the afternoon on sunny days, I suspect they are skewed due to increased direct sunlight and the changing angle of light as we move from winter toward summer. (Drafty is located just below a south-facing window. As we move from the winter solstice toward the summer solstice, the sun is—relatively speaking—moving higher into the sky.) I'm not yet certain how, or indeed whether, I will compensate for this phenomenon.
+In mid-February, Drafty began recording abnormally high temperatures, in the neighborhood of 90–105 F (while the outdoor temperature was in the low 40s to mid 50s). Since these readings occurred in the afternoon on sunny days, I suspect they are skewed due to increased direct sunlight and the changing angle of light as we move from winter toward summer in the northern hemisphere. (Drafty is located just below a south-facing window. As we move from the winter solstice toward the summer solstice, the sun is—relatively speaking—moving higher into the sky.) I'm not yet certain how, or indeed whether, I will compensate for this phenomenon.
