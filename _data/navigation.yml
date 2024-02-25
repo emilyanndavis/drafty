@@ -2,5 +2,7 @@
   url: /
 - name: History
   url: /history.html
+- name: Stats
+  url: /stats.html
 - name: About
   url: /README.html
