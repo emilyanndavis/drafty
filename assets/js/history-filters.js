@@ -7,6 +7,10 @@ window.addEventListener('DOMContentLoaded', () => {
   const tableRows = tableBody.querySelectorAll('tr');
   const tableHeading = document.querySelector('#table-heading');
 
+  const clearMonthSelection = () => {
+    monthSelect.value = '';
+  };
+
   const clearTableBody = () => {
     tableRows.forEach(row => row.remove());
   };
@@ -17,18 +21,19 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const updateTableHeading = (month = null) => {
+  const updateTableHeading = (numRows, month = null) => {
     if (month) {
-      tableHeading.textContent = 'Data from ' + month;
+      tableHeading.textContent = `Data from ${month} (${numRows} rows)`;
     } else {
-      tableHeading.textContent = 'All Data';
+      tableHeading.textContent = `All Data (${numRows} rows)`;
     }
   };
 
   const showAll = () => {
+    clearMonthSelection();
     clearTableBody();
     populateTableRows(tableRows);
-    updateTableHeading();
+    updateTableHeading(tableRows.length);
   };
 
   monthFilterBtn.addEventListener('click', (event) => {
@@ -44,7 +49,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       });
       populateTableRows(filtered);
-      updateTableHeading(monthSelect.value);
+      updateTableHeading(filtered.length, monthSelect.value);
     } else {
       showAll();
     }
