@@ -1,3 +1,10 @@
+$text-primary: #000000;
+$text-error: #bb0055;
+$border-primary: #000000;
+$border-secondary: #2200aa;
+$background-primary: #ffffff;
+$background-secondary: #ddeeff;
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -45,7 +52,7 @@ table {
 
 table,
 thead tr {
-  border: 0.25rem solid #20a;
+  border: 0.25rem solid $border-secondary;
 }
 
 th {
@@ -57,7 +64,7 @@ th, td {
 }
 
 tbody tr:nth-child(even) {
-  background-color: #def;
+  background-color: $background-secondary;
 }
 
 .page--history {
@@ -89,4 +96,94 @@ tbody tr:nth-child(even) {
       width: 53%;
     }
   }
+}
+
+.form-container,
+.button-container {
+  border: 0.125rem solid $border-primary;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.form-heading {
+  margin: 0;
+}
+
+.form-group,
+.button-container {
+  margin-bottom: 1.5rem;
+}
+
+fieldset {
+  border: none;
+}
+
+fieldset,
+legend {
+  padding: 0;
+}
+
+legend {
+  font-weight: bold;
+  margin: 1rem 0 0.5rem;
+}
+
+input,
+legend,
+label,
+select {
+  display: block;
+}
+
+input,
+label,
+select {
+  margin: 0.5rem 0;
+}
+
+button,
+input,
+label,
+legend,
+select {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+select,
+input,
+button {
+  background: transparent;
+  border: 0.125rem solid $border-primary;
+  padding: 0.5rem;
+}
+
+button {
+  background: $background-secondary;
+  border-radius: 0.5rem;
+  box-shadow: 0.125rem 0.125rem 0 0 $border-secondary;
+  margin: 1rem 0 0;
+}
+
+.button-container button {
+  margin: 0;
+}
+
+.form-field-info,
+.form-field-error {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.form-field-error {
+  color: $text-error;
+}
+
+.filter-options-divider {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: bold;
+  padding-left: 1rem;
 }

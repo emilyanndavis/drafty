@@ -9,20 +9,67 @@ js_url: "/assets/js/history-filters.js"
 
 {% include stats.html %}
 
-<h2>Running Log</h2>
+<h2>All Data</h2>
 
-<form id="month-filter-form">
-  <label for="month">Select a month</label>
-  <select id="month">
-    <option value=""></option>
-    {% for month in site.data.months %}
+<div class="form-container">
+  <h3 id="month-filter-form-heading" class="form-heading">Filter by month</h3>
+  <form id="month-filter-form" class="form--filter-by-month" aria-describedby="month-filter-form-heading">
+    <label for="month">Month</label>
+    <select id="month">
+      <option value=""></option>
+      {% for month in site.data.months %}
       <option value="{{ month.month }} {{ month.year }}">{{ month.month }} {{ month.year }}</option>
-    {% endfor %}
-  </select>
-  <button type="submit">Filter results</button>
-</form>
+      {% endfor %}
+    </select>
+    <button type="submit">Filter by month</button>
+  </form>
+</div>
 
-<button type="button" id="show-all">Show all ({{ num_rows | round }} rows)</button>
+<span class="filter-options-divider">or</span>
+
+{% assign min_start_date_iso = site.data.all[0].time | date: "%Y-%m-%d" %}
+{% assign min_start_date_short = site.data.all[0].time | date: "%b %d, %Y" %}
+{% assign end_index = num_rows | minus: 1 | round %}
+{% assign max_end_date_iso = site.data.all[end_index].time | date: "%Y-%m-%d" %}
+{% assign max_end_date_short = site.data.all[end_index].time | date: "%b %d, %Y" %}
+
+<div class="form-container">
+  <h3 id="date-range-filter-form-heading" class="form-heading">Filter by date range</h3>
+  <form
+    id="date-range-filter-form"
+    class="form--filter-by-date-range"
+    data-min-start-date-iso="{{ min_start_date_iso }}"
+    data-max-end-date-iso="{{ max_end_date_iso }}"    
+    data-min-start-date-short="{{ min_start_date_short }}"
+    data-max-end-date-short="{{ max_end_date_short }}"    
+    aria-describedby="date-range-filter-form-heading"
+  >
+    <fieldset>
+      <legend>Custom date range</legend>
+      <div class="form-group">
+        <label for="start-date">Start date</label>
+        <input type="date" id="start-date" aria-describedby="start-date-info start-date-error-1 start-date-error-2" />
+        <span id="start-date-info" class="form-field-info">Must be on or after {{ min_start_date_short }}</span>
+        <span id="start-date-error-1" class="form-field-error"></span>
+        <span id="start-date-error-2" class="form-field-error"></span>
+      </div>
+      <div class="form-group">
+        <label for="end-date">End date</label>
+        <input type="date" id="end-date" aria-describedby="end-date-info end-date-error-1 end-date-error-2" />
+        <span id="end-date-info" class="form-field-info">Must be on or after start date and on or before {{ max_end_date_short }}</span>
+        <span id="end-date-error-1" class="form-field-error"></span>
+        <span id="end-date-error-2" class="form-field-error"></span>
+      </div>
+    </fieldset>
+    <button type="submit">Filter by date range</button>
+  </form>
+</div>
+
+<span class="filter-options-divider">or</span>
+
+<div class="button-container">
+  <button type="button" id="show-all">Show all ({{ num_rows | round }} rows)</button>
+</div>
 
 <table>
   <thead>
@@ -39,7 +86,7 @@ js_url: "/assets/js/history-filters.js"
   <tbody>
     {% for row in site.data.all reversed %}
     <tr>
-      <td>{{ row.time | date: "%B %e, %Y, %r" }}</td>
+      <td data-iso-date-str="{{ row.time | date: "%Y-%m-%d" }}">{{ row.time | date: "%B %e, %Y, %r" }}</td>
       <td>{{ row.temp_f }}&deg;F</td>
       <td>{{ row.humidity }}%</td>
       <td>{{ row.lux }}</td>
