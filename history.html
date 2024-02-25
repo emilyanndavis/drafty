@@ -12,8 +12,8 @@ js_url: "/assets/js/history-filters.js"
 
 <h2>All Data</h2>
 
-<div class="form-container">
-  <h3 id="month-filter-form-heading" class="form-heading">Filter by month</h3>
+<div class="filter-option-container">
+  <h3 id="month-filter-form-heading" class="filter-option-heading">Filter by Month</h3>
   <form id="month-filter-form" class="form--filter-by-month" aria-describedby="month-filter-form-heading">
     <label for="month">Month</label>
     <select id="month">
@@ -28,35 +28,38 @@ js_url: "/assets/js/history-filters.js"
 
 <span class="filter-options-divider">or</span>
 
-<div class="button-container">
+<div class="filter-option-container">
+  <h3 class="filter-option-heading">Show All</h3>
   <button type="button" id="show-all">Show all ({{ num_rows | round }} rows)</button>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Date & Time</th>
-      <th scope="col">Temperature</th>
-      <th scope="col">Humidity</th>
-      <th scope="col">Lux</th>
-      <th scope="col">Local Weather Conditions</th>
-      <th scope="col">Outdoor Temperature</th>
-      <th scope="col">Outdoor Humidity</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for row in site.data.all reversed %}
-    <tr>
-      <td>{{ row.time | date: "%B %e, %Y, %r" }}</td>
-      <td>{{ row.temp_f }}&deg;F</td>
-      <td>{{ row.humidity }}%</td>
-      <td>{{ row.lux }}</td>
-      <td>{% if row.nws_conditions %}{{ row.nws_conditions }}{% else %}n/a{% endif %}</td>
-      <td>{% if row.nws_temp_f %}{{ row.nws_temp_f }}&deg;F{% else %}n/a{% endif %}</td>
-      <td>{% if row.nws_humidity %}{{ row.nws_humidity }}%{% else %}n/a{% endif %}</td>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Date & Time</th>
+        <th scope="col">Temperature</th>
+        <th scope="col">Humidity</th>
+        <th scope="col">Lux</th>
+        <th scope="col">Local Weather Conditions</th>
+        <th scope="col">Outdoor Temperature</th>
+        <th scope="col">Outdoor Humidity</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in site.data.all reversed %}
+      <tr>
+        <td>{{ row.time | date: "%B %e, %Y, %r" }}</td>
+        <td>{{ row.temp_f }}&deg;F</td>
+        <td>{{ row.humidity }}%</td>
+        <td>{{ row.lux }}</td>
+        <td>{% if row.nws_conditions %}{{ row.nws_conditions }}{% else %}n/a{% endif %}</td>
+        <td>{% if row.nws_temp_f %}{{ row.nws_temp_f }}&deg;F{% else %}n/a{% endif %}</td>
+        <td>{% if row.nws_humidity %}{{ row.nws_humidity }}%{% else %}n/a{% endif %}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
 
 <script src="{{ page.js_url | relative_url }}"></script>
