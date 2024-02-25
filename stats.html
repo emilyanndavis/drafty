@@ -1,5 +1,11 @@
-<h2>Summary Stats</h2>
+---
+layout: default
+title: "Drafty: Stats"
+---
+<h1>Summary Stats</h1>
 
+{% assign num_rows = site.data.all | size | times: 1.0 %}
+{% assign end_index = num_rows | minus: 1 | round %}
 {% assign total_temp_diff = 0.0 %}
 {% assign num_rows_with_outdoor_temp = 0.0 %}
 {% assign total_hum_diff = 0.0 %}
@@ -62,4 +68,10 @@
   <dd>{{ max_hum }}% ({{ max_hum_time | date: "%B %e, %Y, %r" }})</dd>
   <dt>Average Deviation from Outdoor Humidity</dt>
   <dd>{{ avg_hum_diff }}%</dd>
+  <dt>Total Number of Readings</dt>
+  <dd>{{ num_rows | round }}</dd>
+  <dt>Date of First Reading</dt>
+  <dd>{{ site.data.all[0].time | date: "%B %e, %Y" }}</dd>
+  <dt>Date of Last Reading</dt>
+  <dd>{{ site.data.all[end_index].time | date: "%B %e, %Y" }}</dd>
 </dl>
