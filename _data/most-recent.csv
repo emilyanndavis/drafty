@@ -1,2 +1,2 @@
 time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_temp_f,nws_humidity,nws_conditions
-2024-02-25 19:47:18,16.8,62.2,44.3,-0.1,3071098355.0,3,1,1,6,14.4,57.9,34.4,Cloudy
+2024-02-25 22:12:34,15.4,59.7,47.7,0.5,8890.4,1,1,1,2,11.7,53.1,44.5,Cloudy
