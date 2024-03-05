@@ -10,14 +10,28 @@ js_url: "/assets/js/history-filters.js"
 
 <h2 class="visually-hidden">Filter Options</h2>
 
+{% assign months = "" | split: "" %}
+{% for row in site.data.all %}
+  {% capture month_and_year %}{{ row.time | date: "%B %Y" }}{% endcapture %}
+  {% assign already_in_list = false %}
+  {% for month in months %}
+    {% if month == month_and_year %}
+      {% assign already_in_list = true %}
+    {% endif %}
+  {% endfor %}
+  {% if already_in_list == false %}
+    {% assign months = months | push: month_and_year %}
+  {% endif %}
+{% endfor %}
+
 <div class="filter-option-container">
   <h3 id="month-filter-form-heading" class="filter-option-heading">Filter by Month</h3>
   <form id="month-filter-form" class="form--filter-by-month" aria-describedby="month-filter-form-heading">
     <label for="month">Month</label>
     <select id="month">
       <option value=""></option>
-      {% for month in site.data.months %}
-      <option value="{{ month.month }} {{ month.year }}">{{ month.month }} {{ month.year }}</option>
+      {% for month in months %}
+      <option value="{{ month }}">{{ month }}</option>
       {% endfor %}
     </select>
     <button type="submit">Filter by month</button>
