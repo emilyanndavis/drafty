@@ -143,11 +143,5 @@ Once you have Drafty successfully collecting data, it's time to check out the re
 1. If this is your first time using Jekyll (either on this machine or ever), you will need to install both Ruby and Jekyll. Go to the [Jekyll docs' Installation page](https://jekyllrb.com/docs/installation/), select your operating system, and follow the instructions.
 2. From the command line, navigate to the drafty directory and run `bundle exec jekyll serve`. Optionally, include the `--livereload` flag if you want your site to automatically rebuild and reload whenever you save changes.
 3. Open a browser and navigate to `localhost:4000/drafty/`. You should see your Raspberry Pi's latest readings!
-4. To enable the History page's "Filter by Month" feature, you will need to specify which months are valid options. In the `_data` directory, edit the `months.yml` file so that it contains only the month(s) in which your Raspberry Pi has collected data. For example, if you're reading this in March 2024, and you just started running Drafty on your Raspberry Pi today, your `months.yml` file should look like this:
-
-    ```
-    - month: March
-      year: 2024
-    ```
-5. If you want to make your Drafty website public, you can use GitHub Pages. The simplest way to do this is to configure your site to publish whenever changes are pushed to a particular branch. Follow these ["Publishing from a branch" instructions in the GitHub docs](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-from-a-branch).
-6. Customize the content, styles, and/or features of your Drafty site as much or as little as you want. Have fun!
+4. If you want to make your Drafty website public, you can use GitHub Pages. The simplest way to do this is to configure your site to publish whenever changes are pushed to a particular branch. Follow these ["Publishing from a branch" instructions in the GitHub docs](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-from-a-branch).
+5. Customize the content, styles, and/or features of your Drafty site as much or as little as you want. Have fun!
