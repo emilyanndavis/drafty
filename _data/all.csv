@@ -4587,3 +4587,4 @@ time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_t
 2024-03-05 21:02:31,11.0,51.8,65.1,-0.3,40943.5,1,0,0,2,0.6,33.1,91.7,Light Snow and Fog/Mist
 2024-03-05 21:17:31,10.7,51.2,65.0,-0.3,40943.5,1,0,0,2,0.0,,95.7,Light Snow and Fog/Mist
 2024-03-05 21:32:31,11.1,52.0,65.0,-0.3,40943.5,1,0,0,2,0.0,,95.7,Light Snow and Fog/Mist
+2024-03-05 21:47:31,10.7,51.3,64.9,-0.3,40943.5,1,0,0,1,0.0,,95.7,Light Snow and Fog/Mist
