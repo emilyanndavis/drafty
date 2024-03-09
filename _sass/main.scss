@@ -1,16 +1,45 @@
-$text-primary: #000000;
-$border-primary: #000000;
-$border-secondary: #2200aa;
-$outline-primary: #8800cc;
-$background-primary: #ffffff;
-$background-secondary: #ddeeff;
+@mixin light-theme {
+  --text-primary: #000000;
+  --text-link: #2200aa;
+  --text-link-visited: #8800cc; 
+  --border-primary: #000000;
+  --border-secondary: #2200aa;
+  --outline-primary: #8800cc;
+  --background-primary: #ffffff;
+  --background-secondary: #ddeeff;
+}
+
+@mixin dark-theme {
+  --text-primary: #fdfdfa;
+  --text-link: #88ddff;
+  --text-link-visited: #dd88ff;
+  --border-primary: #ffffff;
+  --border-secondary: #88ddff;
+  --outline-primary: #dd88ff;
+  --background-primary: #111111;
+  --background-secondary: #1d2d3d;
+}
+
+:root {
+  @include light-theme;
+  @media (prefers-color-scheme: dark) {
+    @include dark-theme;
+  }
+}
 
 body {
-  background: $background-primary;
-  color: $text-primary;
+  background: var(--background-primary);
+  color: var(--text-primary);
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 1rem 2rem;
+}
+
+a {
+  color: var(--text-link);
+  &:visited {
+    color: var(--text-link-visited);
+  }
 }
 
 nav {
@@ -21,10 +50,13 @@ nav {
     &:last-child {
       margin: 0;
     }
-  }
-  .current-page {
-    color: $text-primary;
-    text-decoration: none;
+    &:visited {
+      color: var(--text-link);
+    }
+    &.current-page {
+      color: var(--text-primary);
+      text-decoration: none;
+    }
   }
 }
 
@@ -65,7 +97,7 @@ table {
 
 table,
 thead tr {
-  border: 0.25rem solid $border-secondary;
+  border: 0.25rem solid var(--border-secondary);
 }
 
 th {
@@ -77,7 +109,7 @@ th, td {
 }
 
 tbody tr:nth-child(even) {
-  background: $background-secondary;
+  background: var(--background-secondary);
 }
 
 .page--history {
@@ -112,7 +144,7 @@ tbody tr:nth-child(even) {
 }
 
 .filter-option-container {
-  border: 0.125rem solid $border-primary;
+  border: 0.125rem solid var(--border-primary);
   border-radius: 0.5rem;
   margin: 1rem 0;
   padding: 1rem;
@@ -141,15 +173,15 @@ select {
 button,
 select {
   background: transparent;
-  border: 0.125rem solid $border-primary;
-  color: $text-primary;
+  border: 0.125rem solid var(--border-primary);
+  color: var(--text-primary);
   padding: 0.5rem;
 }
 
 button {
-  background: $background-secondary;
+  background: var(--background-secondary);
   border-radius: 0.5rem;
-  box-shadow: 0.125rem 0.125rem 0 0 $border-secondary;
+  box-shadow: 0.125rem 0.125rem 0 0 var(--border-secondary);
   font-weight: bold;
   margin: 1rem 0 0;
 }
@@ -166,7 +198,7 @@ button,
 select {
   &:focus {
     box-shadow: none;
-    outline: 0.25rem solid $outline-primary;
+    outline: 0.25rem solid var(--outline-primary);
     outline-offset: 0.25rem;
   }
 }
