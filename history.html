@@ -65,7 +65,7 @@ js_url: "/assets/js/history-filters.js"
         <td>{{ row.time | date: "%B %e, %Y, %r" }}</td>
         <td>{{ row.temp_f }}&deg;F</td>
         <td>{{ row.humidity }}%</td>
-        <td>{{ row.lux }}</td>
+        <td>{{ row.lux | round: 0 }}</td>
         <td>{% if row.nws_conditions %}{{ row.nws_conditions }}{% else %}n/a{% endif %}</td>
         <td>{% if row.nws_temp_f %}{{ row.nws_temp_f }}&deg;F{% else %}n/a{% endif %}</td>
         <td>{% if row.nws_humidity %}{{ row.nws_humidity }}%{% else %}n/a{% endif %}</td>
