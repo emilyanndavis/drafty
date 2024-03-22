@@ -7,6 +7,8 @@ title: "About Drafty"
 ## What is Drafty?
 Drafty attempts to answer the question: "Just how drafty is it in that drafty room of the house?" A Raspberry Pi is installed in a poorly insulated enclosed porch and periodically takes readings of the ambient temperature, humidity, and light levels. For comparison with outdoor conditions, local weather data is retrieved from the National Weather Service.
 
+<img src="assets/img/drafty.jpg" alt="A Raspberry Pi plugged into a battery pack and also connected to two small sensor boards via a ribbon cable, breakout board, and jumper cables" style="max-width: 20rem;" />
+
 ## About this site
 The Drafty website is an interface for exploring the data that has been collected by the Raspberry Pi. The homepage (also called "Latest") provides the most recently collected data, the History page provides a log of all data collected so far, and the Stats page provides some summary statistics calculated from the entire collection of data.
 
