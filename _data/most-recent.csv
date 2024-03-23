@@ -1,2 +1,2 @@
 time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_temp_f,nws_humidity,nws_conditions
-2024-03-23 09:02:42,13.9,57.0,51.9,780.6,17047.2,2966,2372,2733,7148,7.2,45.0,82.4,Rain
+2024-03-23 09:17:42,13.4,56.0,52.9,708.0,17132.5,2642,2129,2452,6400,6.7,44.1,85.3,Rain and Fog/Mist
