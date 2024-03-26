@@ -1,2 +1,2 @@
 time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_temp_f,nws_humidity,nws_conditions
-2024-03-26 09:03:56,12.0,53.6,57.4,3218.0,53483.1,10091,9743,12138,28481,2.2,36.0,81.7,Cloudy
+2024-03-26 09:18:56,12.4,54.4,56.7,4853.8,27394.9,17095,14745,17583,43495,3.9,39.0,75.7,Mostly Cloudy
