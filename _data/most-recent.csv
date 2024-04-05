@@ -1,2 +1,2 @@
 time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_temp_f,nws_humidity,nws_conditions
-2024-04-05 16:21:30,13.1,55.6,66.5,6455.4,11144.8,23381,18237,20137,53981,3.3,37.9,89.3,Light Rain
+2024-04-05 16:36:30,13.1,55.6,65.8,13656.6,10833.7,50879,39153,43206,65535,3.3,37.9,89.3,Light Rain
