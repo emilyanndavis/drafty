@@ -1,2 +1,2 @@
 time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_temp_f,nws_humidity,nws_conditions
-2024-04-21 02:08:01,17.9,64.3,39.7,1.3,2410.6,1,1,0,2,15.0,59.0,35.9,Partly Cloudy
+2024-04-21 02:23:01,17.8,64.0,40.0,-0.3,40943.5,1,0,0,1,13.3,55.9,41.9,Clear
