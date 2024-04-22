@@ -1,2 +1,2 @@
 time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_temp_f,nws_humidity,nws_conditions
-2024-04-22 17:44:41,23.4,74.2,23.1,10550.2,17378.2,31915,28161,32158,65535,17.2,63.0,16.7,Clear
+2024-04-22 17:59:41,23.5,74.3,22.6,13253.9,13120.7,41255,34819,38679,65535,17.2,63.0,16.7,Clear
