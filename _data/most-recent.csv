@@ -1,2 +1,2 @@
 time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_temp_f,nws_humidity,nws_conditions
-2024-05-28 20:24:22,22.2,72.0,52.1,165.0,16838.1,613,494,568,1419,23.3,73.9,46.2,Haze
+2024-05-29 13:09:01,19.2,66.5,40.0,11127.6,11077.6,33010,27852,30217,65535,16.7,62.1,39.4,Mostly Clear
