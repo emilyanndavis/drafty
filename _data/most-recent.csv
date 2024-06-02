@@ -1,2 +1,2 @@
 time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_temp_f,nws_humidity,nws_conditions
-2024-06-02 11:15:05,19.7,67.5,46.3,12412.1,10130.7,45196,34813,38068,65535,17.8,64.0,46.2,Partly Cloudy
+2024-06-02 11:30:05,20.2,68.4,45.1,17129.4,9702.2,63146,48189,52506,65535,17.8,64.0,46.2,Partly Cloudy
