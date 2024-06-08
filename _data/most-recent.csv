@@ -1,2 +1,2 @@
 time,temp_c,temp_f,humidity,lux,color_temp,red,green,blue,clear,nws_temp_c,nws_temp_f,nws_humidity,nws_conditions
-2024-06-08 15:40:50,28.7,83.6,45.0,12404.8,14614.2,44508,35860,40641,65535,33.9,93.0,20.0,Clear
+2024-06-08 15:55:50,29.1,84.4,44.4,18086.8,11569.1,65535,51318,56886,65535,33.9,93.0,20.0,Clear
